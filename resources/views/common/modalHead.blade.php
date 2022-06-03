@@ -4,7 +4,7 @@
 
         <div class="modal-header">
           <h4 class="modal-title" id="myModalLabel">Modal title</h4>
-          <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span>
+          <button type="button" class="close" wire:click.prevent="resetUI()" data-dismiss="modal"><span aria-hidden="true">×</span>
           </button>
         </div>
         <div class="modal-body">
