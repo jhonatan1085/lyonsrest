@@ -45,8 +45,9 @@
         <div class="well profile_view">
             <ul class="nav nav-tabs bar_tabs" id="myTab" role="tablist">
               <li class="nav-item">
-                <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">Home</a>
+                <a class="nav-link active" id="vigente-tab" data-toggle="tab" href="#vigente" role="tab" aria-controls="vigente" aria-selected="true">Home</a>
               </li>
+
               <li class="nav-item">
                 <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">Profile</a>
               </li>
@@ -55,10 +56,53 @@
               </li>
             </ul>
             <div class="tab-content" id="myTabContent">
-              <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
-                Raw denim you probably haven't heard of them jean shorts Austin. Nesciunt tofu stumptown aliqua, retro synth master cleanse. Mustache cliche tempor, williamsburg carles vegan helvetica. Reprehenderit butcher retro keffiyeh dreamcatcher
-                    synth. Cosby sweater eu banh mi, qui irure terr.
+              <div class="tab-pane fade show active" id="vigente" role="tabpanel" aria-labelledby="vigente-tab">
+                
+                <div class="table-responsive">
+                  <table class="table table-bordered table-striped mt-1">
+                      <thead>
+                          <tr>
+                              <th>Pagaré</th>
+                              <th>F.Otorga</th>
+                              <th>T_Producto</th>
+                              <th>Saldo</th>
+                              <th>F.Ult.Pago</th>
+                              <th>Ubicación</th>
+                              <th>Tipo</th>
+                              <th>Acción</th>
+                          </tr>
+                      </thead>
+                      <tbody>
+                         
+                          @foreach ($credVig as $r)
+  
+                          <tr>
+                              <th>{{ $r->Nro_pagare}}</th>
+                              <th>{{ $r->Fecha_otorgado}}</th>
+                              <td>{{ $r->DES_PRES }}</td>
+                              <td>{{ number_format($r->Saldo_prestamo,2) }}</td>
+                              <td>{{ $r->Fecha_ult_pago }}</td>
+                              <td>{{ $r->UBICACION }}</td>
+                              <td>{{ $r->Amp_ref }}</td>
+                              <td class="text-center">
+
+                                <button type="button"  wire:click="Desactive({{$r->idPrestamos}})"  class="btn btn-success btn-sm"> 
+                                  <i class="fa fa-check">
+                                  </i> 
+                              </button>
+                              </td>
+                              
+                              
+                          </tr>
+                          @endforeach
+                          
+                      </tbody>
+                  </table>
+                  
               </div>
+
+              </div>
+
               <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
                 Food truck fixie locavore, accusamus mcsweeney's marfa nulla single-origin coffee squid. Exercitation +1 labore velit, blog sartorial PBR leggings next level wes anderson artisan four loko farm-to-table craft beer twee. Qui photo
                     booth letterpress, commodo enim craft beer mlkshk aliquip

@@ -47,9 +47,12 @@
                             
                             <td class="text-center">
 
-                                <button type="button" wire:click.prevent="BuscarCliente({{$r->idPersonas}})" class="btn btn-primary">ACTUALIZAR</button>
-                                
                                
+                                <button type="button"  wire:click.prevent="BuscarCliente({{$r->idPersonas}})"  class="btn btn-success btn-sm"> 
+                                    <i class="fa fa-check">
+                                    </i> 
+                                </button>
+
                             </td>
                             
                             

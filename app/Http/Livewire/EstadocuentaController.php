@@ -13,6 +13,7 @@ class EstadocuentaController extends Component
     use WithPagination;
 
     public $clientes,$ApPat, $ApMat, $Nombres, $total, $Cuenta, $cuentacare,$Razon_social,$Nro_documento,$direccion,$distrito,$Telf_Fijo,$Telf_Cel;
+    public $credVig;
     public $search, $pageTitle, $componentName; //propiedades publicas
     private $pagination = 5;
     public function mount()
@@ -21,7 +22,7 @@ class EstadocuentaController extends Component
         $this->ComponentName = 'Usuarios';
         $this->status = 'Elegir';
         $this->clientes = [];
-        
+        $this->credVig = [];
         $this->total = 0;
         $this->Cuenta = '';
         $this->Razon_social= '';
@@ -43,9 +44,9 @@ class EstadocuentaController extends Component
 
     public function Buscar()
     {
-        
+        $this->credVig = [];
         $this->clientes = DB::select("exec UP_SEL_ConsultarClientes '3','','','', '" . $this->ApPat . "','" . $this->ApMat . "','" . $this->Nombres . "',''");
-         
+       
     }
     protected $listeners = [ //para escuchar los eventos
         'BuscarCliente' => 'BuscarCliente'
@@ -68,6 +69,9 @@ class EstadocuentaController extends Component
             $this->Telf_Cel =  $row->Telf_Cel; 
         }
 
+        
+        $this->credVig = DB::select("exec UP_SEL_BuscarPrestamo '". $id ."','%%','S'");
+//dd($this->credVig);
 
   
         $this->emit('hide-modal', 'Usuario Registrado');
@@ -77,6 +81,7 @@ class EstadocuentaController extends Component
     public function resetUI()
     {
         $this->clientes = [];
+        $this->credVig = [];
         $this->ApPat = '';
         $this->ApMat = '';
         $this->Nombres = '';
