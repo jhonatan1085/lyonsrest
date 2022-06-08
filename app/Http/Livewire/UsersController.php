@@ -43,6 +43,8 @@ class UsersController extends Component
             $data = User::select('*')->orderBy('name', 'asc')->paginate($this->pagination);
         }
 
+       
+
         return view('livewire.users.component', [
             'data' => $data,
             'roles' => Role::orderBy('name', 'asc')->get()

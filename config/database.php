@@ -90,6 +90,14 @@ return [
             'prefix' => '',
             'prefix_indexes' => true,
         ],
+        'odbcconnection' => [
+            'driver' => 'odbc',
+            'dsn' => 'DSNLaravel',
+            'database' => 'DBO_FINANCIERO',
+            'host' => '127.0.0.1',
+            'username' => 'sa',
+            'password' => '123.FS'
+        ]
 
     ],
 

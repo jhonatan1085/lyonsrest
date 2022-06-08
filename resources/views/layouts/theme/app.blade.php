@@ -7,7 +7,7 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 
-	<title>..:: Lyons Rest ::.. | </title>
+	<title>..:: IDER CV ::.. | </title>
 
     @include('layouts.theme.styles')
 
@@ -15,7 +15,8 @@
 </head>
 
 <body class="nav-md">
-	<div class="container body">
+	<div>
+<div class="container body">
 		<div class="main_container">
 			<div class="col-md-3 left_col">
                 
@@ -47,4 +48,7 @@
 
 	@include('layouts.theme.scripts')
 
-</body></html>
+	</div>
+</body>
+
+</html>

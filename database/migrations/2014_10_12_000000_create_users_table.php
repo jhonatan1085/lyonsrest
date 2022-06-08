@@ -21,7 +21,7 @@ class CreateUsersTable extends Migration
             $table->string('password');
             $table->enum('profile',['ADMIN','EMPLOYEE'])->default('ADMIN');
             $table->string('phone',10)->nullable();
-            $table->enum('status',['ACTIVE','LOCKED'])->default('ACTIVE');
+            $table->enum('status',['Active','Locked'])->default('ACTIVE');
             $table->string('image',50)->nullable();
             $table->rememberToken();
             $table->timestamps();

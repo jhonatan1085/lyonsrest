@@ -35,10 +35,6 @@
                         </tr>
                     </thead>
                     <tbody>
-                        @if($total>0)
-                                <tr><td colspan="4"><h6 class="text-center">No hay ventas en la fecha seleccionada</h6></td></tr>
-                        
-                        @else
                         @foreach ($clientes as $r)
 
                         <tr>
@@ -46,19 +42,16 @@
                             <td>{{ $r->Razon_social }}</td>
                             
                             <td class="text-center">
-
-                               
                                 <button type="button"  wire:click.prevent="BuscarCliente({{$r->idPersonas}})"  class="btn btn-success btn-sm"> 
                                     <i class="fa fa-check">
                                     </i> 
                                 </button>
 
                             </td>
-                            
-                            
+
                         </tr>
                         @endforeach
-                        @endif
+                  
                     </tbody>
                 </table>
                 
